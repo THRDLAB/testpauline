@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 import psycopg2
 
 app = Flask(__name__)
@@ -14,7 +14,8 @@ conn = psycopg2.connect(
 
 @app.route('/')
 def index():
-    return "API Flask pour récupérer des données spécifiques depuis la base de données PubMed sur PgAdmin"
+    # Redirection vers l'endpoint /latest-articles
+    return redirect('/latest-articles')
 
 @app.route('/latest-articles', methods=['GET'])
 def get_latest_articles():
