@@ -14,6 +14,7 @@ conn = psycopg2.connect(
 
 @app.route('/')
 def index():
+    # Redirection vers l'endpoint /latest-articles
     return redirect('/latest-articles')
 
 @app.route('/latest-articles', methods=['GET'])
